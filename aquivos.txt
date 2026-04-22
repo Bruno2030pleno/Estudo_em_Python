@@ -1,0 +1,2 @@
+produto MANGA quantidade EM KG 1 preço R$ 5.5
+produto ABACATE quantidade EM KG 1 preço R$ 8.6
