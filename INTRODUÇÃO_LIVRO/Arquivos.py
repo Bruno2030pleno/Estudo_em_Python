@@ -1,6 +1,5 @@
 def arquivo():
-    print('bem vindo')
-    print("segundo print")
+    
     LISTA_DE_COMPRAS = {
     'MANGA':  {'QUANTIDADE': 1, 'preço': 5.5},
     'ABACATE':{'QUANTIDADE': 1,'preço': 8.6}
