@@ -1,0 +1,7 @@
+*ESTE É UM TÍTULO CENTRALIZADO
+>ESTE TEXTO VAI PARA A DIREITA
+=
+Esta é uma linha comum que cai no else.
+.
+Esta linha tem um ponto, então o programa deve parar agora.
+;Isso aqui é um comentário e não deve aparecer no terminal.

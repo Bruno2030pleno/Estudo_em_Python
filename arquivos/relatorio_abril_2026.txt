@@ -1,0 +1,17 @@
+Relatório de Pagamento - José Bruno Nobre
+--------------------------------------------------
+0002 | DIAS TRABALHADOS MES           | R$  1672.22
+0005 | SALARIO - FAMILIA              | R$    67.54
+0447 | AJUDA - CUSTO CCT FORTALEZA FE | R$    38.38
+0720 | DSR                            | R$     0.00
+0003 | DESC. INSS                     | R$   126.17
+0019 | DESC. ADTO QUINZENAL           | R$   668.89
+0100 | DESC. CESTA BASICA FOLHA       | R$    16.00
+0510 | DESC. COMPRAS LIBERCARD        | R$   151.99
+0544 | DESC. ASSIST. ODONT.ODONTOART  | R$    27.80
+0614 | DESC. TX FUNDO ASSIST. SAUDE S | R$    16.00
+0696 | DESC. EMPRESTIMO CREDITO DO TR | R$    37.60
+0707 | DESC. EMPRESTIMO CREDITO DO TR | R$   234.02
+0708 | DESC. EMPRESTIMO CREDITO DO TR | R$   195.37
+--------------------------------------------------
+Total de Descontos: R$ 1473.84

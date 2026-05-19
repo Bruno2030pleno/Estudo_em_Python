@@ -19,3 +19,7 @@
 # Combinação - Ordem não importa - iterável + tamanho do grupo
 # Permutação - Ordem importa
 # Produto - Ordem importa e repete valores únicos
+import math
+b = 100
+r = math.sqrt(b)
+print(r)   
