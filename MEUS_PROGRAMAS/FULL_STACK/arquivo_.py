@@ -12,15 +12,15 @@
 # definir_arquivo()        
 
 import json
-# d = {
-#     1: 'bruno',
-#      2: 'lena',
-#      2: 'miguel',
-# 'ende': [{'rua': 'b','n': 10}]
+d = {
+    1: 'bruno',
+     2: 'lena',
+     2: 'miguel',
+'ende': [{'rua': 'b','n': 10}]}
 nome_arquivo = 'dicionario_dados.json'
 
-# with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
-#     json.dump(d, arquivo, ensure_ascii=False, indent=2)
+with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
+    json.dump(d, arquivo, ensure_ascii=False, indent=2)
    
 with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
     d = json.load(arquivo)
