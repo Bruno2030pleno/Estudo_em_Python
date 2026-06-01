@@ -2,7 +2,7 @@ def adicionar_dados():
     lista = []
     while True:
         
-        dados = input('digite qualquer coisa: ').lower()
+        dados = input('digite qualquer coisa: ').lower().strip()
         lista.append(dados)
         print(f'dados na lista {lista}')
         
