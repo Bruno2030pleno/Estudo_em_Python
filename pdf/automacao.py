@@ -32,63 +32,49 @@ def extrair_vias_texto(caminho_pdf):
 
 dados = extrair_vias_texto(arquivo_pdf)
 
-print(f"Arquivo: {os.path.basename(arquivo_pdf)}")
+if not dados:
+    print("Aviso: Nenhum dado válido encontrado para gerar relatório.")
+    sys.exit()
+
+nome_saida = "relatorio_abril_2026.txt"
+caminho_saida = os.path.join(pasta_do_script, nome_saida)
+
+print(f"Arquivo lido: {os.path.basename(arquivo_pdf)}")
 print(f"{'CÓDIGO':<8} | {'DESCRIÇÃO':<35} | {'VALOR':<10}")
 print("-" * 60)
 
-total_descontos = 0.0
-
-for item in dados:
-    codigo = item[0] #
-    # Une as palavras da descrição que ficaram separadas
-    descricao = " ".join([p for p in item[1:] if not p.replace('.', '').replace(',', '').isdigit()]) #
+with open(caminho_saida, "w", encoding="utf-8") as f:
+    f.write("Relatório de Pagamento - José Bruno Nobre\n")
+    f.write("-" * 50 + "\n")
     
-    # Pega o último valor da linha (que pode ser provento ou desconto)
-    valor_str = item[-1].replace('.', '').replace(',', '.')
-    
-    try:
-        valor_num = float(valor_str)
-        # No seu PDF, itens como INSS, Adiantamento e Empréstimos são descontos
-        if "DESC" in descricao or "EMPRESTIMO" in descricao:
-            total_descontos += valor_num
-            tipo = "DESCONTO"
-        else:
-            tipo = "PROVENTO"
-            
-        print(f"{codigo:<8} | {descricao[:35]:<35} | {valor_num:>10.2f} ({tipo})")
-    except:
-        continue
-
-print("-" * 60)
-print(f"Total de Descontos Calculado: R$ {total_descontos:.2f}") #
-
-# ... (mantenha a parte de extração que funcionou) ...
-# --- Execução e Geração de Arquivo ---
-dados = extrair_vias_texto(arquivo_pdf)
-
-if dados:
-    # Cria (ou sobrescreve) um arquivo de texto na mesma pasta
-    nome_saída = "relatorio_abril_2026.txt"
-    
-    with open(nome_saída, "w", encoding="utf-8") as f:
-        f.write(f"Relatório de Pagamento - José Bruno Nobre\n") #[cite: 1]
-        f.write("-" * 50 + "\n")
+    total_descontos = 0.0
+    for item in dados:
+        codigo = item[0]
+        descricao = " ".join([p for p in item[1:] if not p.replace('.', '').replace(',', '').isdigit()])
+        valor_str = item[-1].replace('.', '').replace(',', '.')
         
-        total_desc = 0.0
-        for item in dados:
-            codigo = item[0]
-            descricao = " ".join([p for p in item[1:] if not p.replace('.', '').replace(',', '').isdigit()])
-            valor_str = item[-1].replace('.', '').replace(',', '.')
+        try:
+            valor_num = float(valor_str)
             
-            try:
-                valor_num = float(valor_str)
-                f.write(f"{codigo} | {descricao[:30]:<30} | R$ {valor_num:>8.2f}\n")
-                if "DESC" in descricao or "EMPRESTIMO" in descricao:
-                    total_desc += valor_num
-            except:
-                continue
-        
-        f.write("-" * 50 + "\n")
-        f.write(f"Total de Descontos: R$ {total_desc:.2f}\n") #
+            if "DESC" in descricao or "EMPRESTIMO" in descricao:
+                total_descontos += valor_num
+                tipo = "DESCONTO"
+            else:
+                tipo = "PROVENTO"
+                
+            # Exibe na tela
+            print(f"{codigo:<8} | {descricao[:35]:<35} | {valor_num:>10.2f} ({tipo})")
+            
+            # Salva no arquivo de texto ao mesmo tempo
+            f.write(f"{codigo} | {descricao[:30]:<30} | R$ {valor_num:>8.2f}\n")
+            
+        except ValueError:
+            continue
 
-    print(f"Sucesso! O arquivo '{nome_saída}' foi gerado na sua pasta.")
+    print("-" * 60)
+    print(f"Total de Descontos Calculado: R$ {total_descontos:.2f}")
+    
+    f.write("-" * 50 + "\n")
+    f.write(f"Total de Descontos: R$ {total_descontos:.2f}\n")
+
+print(f"\nSucesso! O arquivo '{nome_saida}' foi gerado em:\n{caminho_saida}")
