@@ -84,9 +84,9 @@ import os.path
 
 # programa 9.11 exibindo os componetes da data e hora
 
-import time
+# import time
 
-agora = time.localtime()
+# agora = time.localtime()
 
 # ano = agora.tm_year
 # mes = agora.tm_mon
@@ -98,4 +98,16 @@ agora = time.localtime()
 # print(f'dia {dia}')
 # print(f'{hora} horas')
 
-print(time.strftime('%a/%d/%b'))
+# print(time.strftime('%a/%d/%b/%j'))
+
+# caminho = 'MEUS_PROGRAMAS//novo'
+# d = os.path.splitdrive('nova_lista.br')
+# print(d)
+# d = os.path.splitext('nova_lista.br')
+# print(d)
+
+teste = os.path.join('c:', 'dados', 'programas')
+print(teste)
+
+teste1 = os.path.abspath(os.path.join('c:', 'dados', 'programas'))
+print(teste1)
