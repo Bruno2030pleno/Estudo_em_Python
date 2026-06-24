@@ -1,4 +1,0 @@
-tv = Televisao()
-controle = ControleRemoto(tv)
-print(tv.canal)
-
